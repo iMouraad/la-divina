@@ -338,6 +338,7 @@ body {
         background-color: var(--color-white);
         flex-direction: column;
         align-items: center;
+        text-align: center;
         padding-top: 50px;
         transform: translateX(100%);
         transition: transform 0.3s ease-in-out;
@@ -353,11 +354,26 @@ body {
     }
 
     .nav-list li {
-        margin: 20px 0;
+        margin: 0; /* Reset previous margin */
+        width: 100%; /* Make list item take full width */
     }
 
     .nav-link {
-        font-size: 1.5rem;
+        display: block; /* Make it block to take full width and padding */
+        font-size: 1.6rem; /* Slightly larger font */
+        padding: 15px 0; /* More padding for larger tap area */
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator */
+        transition: background-color 0.3s ease;
+        color: var(--color-dark); /* Ensure text color is consistent */
+    }
+
+    .nav-link:hover, .nav-link:focus { /* Add focus for accessibility */
+        background-color: rgba(var(--color-primary), 0.1); /* Light background on hover/tap */
+        color: var(--color-primary); /* Change text color */
+    }
+
+    .nav-link::after { /* Override desktop underline */
+        display: none;
     }
 
     .nav-btn-desktop {
